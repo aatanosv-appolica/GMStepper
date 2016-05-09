@@ -9,7 +9,9 @@
 import UIKit
 
 @IBDesignable public class GMStepper: UIControl {
-
+    
+    @IBInspectable public var keyBeforeValue: String = "£"
+    
     /// Current value of the stepper. Defaults to 0.
     @IBInspectable public var value: Double = 0 {
         didSet {
@@ -18,9 +20,9 @@ import UIKit
             let isInteger = floor(value) == value
 
             if showIntegerIfDoubleIsInteger && isInteger {
-                label.text = String(stringInterpolationSegment: Int(value))
+                label.text = "\(keyBeforeValue)\(String(stringInterpolationSegment: Int(value)))"
             } else {
-                label.text = String(stringInterpolationSegment: value)
+                label.text = "\(keyBeforeValue)\(String(stringInterpolationSegment: value))"
             }
 
             if oldValue != value {
