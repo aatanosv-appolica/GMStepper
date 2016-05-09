@@ -88,7 +88,7 @@ import UIKit
     }
 
     /// Font of the buttons. Defaults to AvenirNext-Bold, 20.0 points in size.
-    public var buttonsFont = UIFont(name: "AvenirNext-Bold", size: 20.0)! {
+    public var buttonsFont = UIFont(name: "HelveticaNeue-Medium", size: 32.0)! {
         didSet {
             for button in [leftButton, rightButton] {
                 button.titleLabel?.font = buttonsFont
@@ -111,7 +111,7 @@ import UIKit
     }
 
     /// Font of the middle label. Defaults to AvenirNext-Bold, 25.0 points in size.
-    public var labelFont = UIFont(name: "AvenirNext-Bold", size: 25.0)! {
+    public var labelFont = UIFont(name: "HelveticaNeue-Medium", size: 20.0)! {
         didSet {
             label.font = labelFont
         }
@@ -191,9 +191,9 @@ import UIKit
         let label = UILabel()
         label.textAlignment = .Center
         if self.showIntegerIfDoubleIsInteger && floor(self.value) == self.value {
-            label.text = String(stringInterpolationSegment: Int(self.value))
+            label.text = "\(self.keyBeforeValue)\(String(stringInterpolationSegment: Int(self.value)))"
         } else {
-            label.text = String(stringInterpolationSegment: self.value)
+            label.text = "\(self.keyBeforeValue)\(String(stringInterpolationSegment: self.value))"
         }
         label.textColor = self.labelTextColor
         label.backgroundColor = self.labelBackgroundColor
