@@ -378,9 +378,9 @@ extension GMStepper {
             guard let weakSelf = self else {
                 return
             }
-            weakSelf.label.center = weakSelf.labelOriginalCenter
-            weakSelf.rightButton.backgroundColor = weakSelf.buttonsBackgroundColor
-            weakSelf.leftButton.backgroundColor = weakSelf.buttonsBackgroundColor
+            self?.label.center = weakSelf.labelOriginalCenter
+            self?.rightButton.backgroundColor = weakSelf.buttonsBackgroundColor
+            self?.leftButton.backgroundColor = weakSelf.buttonsBackgroundColor
             })
     }
 }
