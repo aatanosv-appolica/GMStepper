@@ -205,7 +205,7 @@ import UIKit
         return label
     }()
 
-    var labelOriginalCenter: CGPoint!
+    var labelOriginalCenter: CGPoint?
     var labelMaximumCenterX: CGFloat!
     var labelMinimumCenterX: CGFloat!
 
@@ -378,7 +378,9 @@ extension GMStepper {
             guard let weakSelf = self else {
                 return
             }
-            self?.label.center = weakSelf.labelOriginalCenter
+            if let labelOriginalCenter = weakSelf.labelOriginalCenter {
+                self?.label.center = labelOriginalCenter
+            }
             self?.rightButton.backgroundColor = weakSelf.buttonsBackgroundColor
             self?.leftButton.backgroundColor = weakSelf.buttonsBackgroundColor
             })
@@ -437,7 +439,9 @@ extension GMStepper {
     func animateToOriginalPosition() {
         if self.label.center != self.labelOriginalCenter {
             UIView.animateWithDuration(labelSlideDuration) {
-                self.label.center = self.labelOriginalCenter
+                if let labelOriginalCenter = self.labelOriginalCenter {
+                    self.label.center = labelOriginalCenter
+                }
             }
         }
     }
